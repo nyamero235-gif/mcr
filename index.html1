@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Our Little World 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    color: white;
+    background:
+        radial-gradient(circle at 20% 20%, #ff9eb5 0%, transparent 25%),
+        radial-gradient(circle at 80% 80%, #9d8cff 0%, transparent 30%),
+        linear-gradient(135deg, #180b2e, #32133f, #160d2c);
+}
+
+/* ---------- 3D BACKGROUND ---------- */
+
+.scene {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    perspective: 1000px;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: twinkle 3s infinite alternate;
+}
+
+.star:nth-child(1) { top: 10%; left: 15%; }
+.star:nth-child(2) { top: 22%; left: 80%; animation-delay: .5s; }
+.star:nth-child(3) { top: 60%; left: 10%; animation-delay: 1s; }
+.star:nth-child(4) { top: 75%; left: 85%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 35%; left: 45%; animation-delay: 2s; }
+.star:nth-child(6) { top: 88%; left: 55%; animation-delay: .7s; }
+.star:nth-child(7) { top: 15%; left: 55%; animation-delay: 1.2s; }
+
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.6); }
+    to { opacity: 1; transform: scale(1.4); }
+}
+
+.heart3d {
+    position: absolute;
+    font-size: 45px;
+    opacity: .15;
+    animation: floatHeart 8s infinite ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.heart3d:nth-of-type(1) {
+    left: 8%;
+    top: 35%;
+}
+
+.heart3d:nth-of-type(2) {
+    right: 10%;
+    top: 20%;
+    font-size: 70px;
+    animation-delay: 2s;
+}
+
+.heart3d:nth-of-type(3) {
+    right: 25%;
+    bottom: 10%;
+    font-size: 35px;
+    animation-delay: 4s;
+}
+
+@keyframes floatHeart {
+    0%,100% {
+        transform: translate3d(0,0,0) rotateY(0deg);
+    }
+    50% {
+        transform: translate3d(30px,-50px,80px) rotateY(180deg);
+    }
+}
+
+/* ---------- MAIN ---------- */
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1050px;
+    margin: auto;
+    padding: 25px 18px 50px;
+}
+
+/* ---------- HEADER ---------- */
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: clamp(32px, 8vw, 60px);
+    text-shadow:
+        0 0 10px #ff8eaa,
+        0 0 30px #ff5f87;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #ffd8e2;
+    font-size: 15px;
+}
+
+/* ---------- 3D CARD ---------- */
+
+.card {
+    position: relative;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 28px;
+    padding: 22px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.35),
+        inset 0 1px 1px rgba(255,255,255,.2);
+    transform-style: preserve-3d;
+    transition: transform .25s ease;
+}
+
+.card:hover {
+    transform: rotateX(2deg) rotateY(-2deg) translateY(-3px);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+/* ---------- PARTNERS ---------- */
+
+.partners {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 12px;
+    align-items: center;
+}
+
+.partner {
+    padding: 18px;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.16);
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+    margin: auto auto 10px;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    border-radius: 50%;
+    background: linear-gradient(145deg,#ff9eb6,#9c77ff);
+    box-shadow: 0 10px 25px rgba(255,105,150,.35);
+}
+
+.partner h3 {
+    font-size: 16px;
+}
+
+.partner small {
+    color: #ffc8d7;
+}
+
+.connection {
+    text-align: center;
+    font-size: 35px;
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 15px #ff668d);
+    }
+}
+
+/* ---------- PROGRESS ---------- */
+
+.progress-box {
+    margin-top: 20px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.progress {
+    height: 15px;
+    background: rgba(0,0,0,.3);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: inherit;
+    background: linear-gradient(90deg,#ff6584,#ff9bb3,#a88cff);
+    box-shadow: 0 0 15px #ff6d91;
+    transition: width .5s ease;
+}
+
+/* ---------- TASKS ---------- */
+
+.tasks {
+    display: grid;
+    gap: 13px;
+}
+
+.task {
+    position: relative;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(0,0,0,.18);
+    border: 1px solid rgba(255,255,255,.12);
+    transition: .3s;
+}
+
+.task.completed {
+    opacity: .65;
+    border-color: #ff86a3;
+}
+
+.task-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task-icon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255,255,255,.1);
+    font-size: 22px;
+}
+
+.task h3 {
+    font-size: 16px;
+}
+
+.task p {
+    color: #d9c9dc;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 13px;
+    flex-wrap: wrap;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#ff5f87,#a36fff);
+    box-shadow: 0 7px 18px rgba(255,95,135,.25);
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+button.secondary {
+    background: rgba(255,255,255,.1);
+}
+
+/* ---------- MEMORIES ---------- */
+
+.memory-input {
+    display: flex;
+    gap: 8px;
+}
+
+input, textarea {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,.15);
+    outline: none;
+    color: white;
+    background: rgba(0,0,0,.2);
+    border-radius: 13px;
+    padding: 12px;
+    font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #c8b6cb;
+}
+
+.memory-list {
+    margin-top: 15px;
+    display: grid;
+    gap: 10px;
+}
+
+.memory {
+    padding: 13px;
+    background: rgba(255,255,255,.08);
+    border-radius: 14px;
+}
+
+/* ---------- REWARD ---------- */
+
+.reward {
+    text-align: center;
+}
+
+.lock {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.reward h2 {
+    margin-bottom: 8px;
+}
+
+.reward p {
+    color: #d7c6da;
+}
+
+/* ---------- MODAL ---------- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(8px);
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 450px;
+    padding: 28px;
+    border-radius: 25px;
+    background: linear-gradient(145deg,#35183f,#1d1230);
+    border: 1px solid rgba(255,255,255,.2);
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    animation: modalIn .35s ease;
+}
+
+@keyframes modalIn {
+    from {
+        transform: scale(.7) rotateX(15deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotateX(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content textarea {
+    min-height: 120px;
+    resize: vertical;
+    margin-bottom: 12px;
+}
+
+/* ---------- FLOATING BUTTON ---------- */
+
+.reset {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.footer {
+    text-align: center;
+    color: #cdbbd1;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px) {
+
+    .container {
+        padding: 18px 12px 40px;
+    }
+
+    .card {
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    .partners {
+        grid-template-columns: 1fr;
+    }
+
+    .connection {
+        transform: rotate(90deg);
+    }
+
+    .connection:hover {
+        transform: rotate(90deg) scale(1.1);
+    }
+
+    .memory-input {
+        flex-direction: column;
+    }
+
+    .header h1 {
+        font-size: 38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 3D WORLD -->
+<div class="scene">
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <div class="heart3d">💗</div>
+    <div class="heart3d">💖</div>
+    <div class="heart3d">💕</div>
+</div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>Our Little World 💗</h1>
+        <p>Even miles apart, we're still a team.</p>
+    </header>
+
+    <!-- PARTNERS -->
+    <section class="card">
+
+        <div class="partners">
+
+            <div class="partner">
+                <div class="avatar">🧑🏻</div>
+                <h3>You</h3>
+                <small>Partner 1</small>
+            </div>
+
+            <div class="connection">💞</div>
+
+            <div class="partner">
+                <div class="avatar">👩🏻</div>
+                <h3>My Love</h3>
+                <small>Partner 2</small>
+            </div>
+
+        </div>
+
+        <div class="progress-box">
+
+            <div class="progress-info">
+                <span>Relationship Quest</span>
+                <span id="progressText">0%</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TASKS -->
+    <section class="card">
+
+        <h2>💕 Today's Co-op Tasks</h2>
+
+        <div class="tasks">
+
+            <div class="task" id="task1">
+
+                <div class="task-title">
+                    <div class="task-icon">💬</div>
+
+                    <div>
+                        <h3>Say Something Sweet</h3>
+                        <p>Tell each other one thing you appreciate today.</p>
+                    </div>
+                </div>
+
+                <div class="task-actions">
+                    <button onclick="completeTask(1)">
+                        Complete
+                    </button>
+
+                    <button class="secondary"
+                            onclick="openMessage('Say Something Sweet')">
+                        Write Message
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="task" id="task2">
+
+                <div class="task-title">
+                    <div class="task-icon">📸</div>
+
+                    <div>
+                        <h3>Same Moment</h3>
+                        <p>Take a photo of what you're doing right now.</p>
+                    </div>
+                </div>
+
+                <div class="task-actions">
+                    <button onclick="completeTask(2)">
+                        Complete
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="task" id="task3">
+
+                <div class="task-title">
+                    <div class="task-icon">🎵</div>
+
+                    <div>
+                        <h3>Our Song</h3>
+                        <p>Listen to one song together while on call.</p>
+                    </div>
+                </div>
+
+                <div class="task-actions">
+                    <button onclick="completeTask(3)">
+                        Complete
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="task" id="task4">
+
+                <div class="task-title">
+                    <div class="task-icon">🌙</div>
+
+                    <div>
+                        <h3>Goodnight Promise</h3>
+                        <p>Before sleeping, say goodnight and remind each other that you're loved.</p>
+                    </div>
+                </div>
+
+                <div class="task-actions">
+                    <button onclick="completeTask(4)">
+                        Complete
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="task" id="task5">
+
+                <div class="task-title">
+                    <div class="task-icon">📝</div>
+
+                    <div>
+                        <h3>Future Date</h3>
+                        <p>Plan one thing you'll do together when you finally meet.</p>
+                    </div>
+                </div>
+
+                <div class="task-actions">
+                    <button onclick="completeTask(5)">
+                        Complete
+                    </button>
+
+                    <button class="secondary"
+                            onclick="openMessage('Future Date')">
+                        Plan It
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MEMORY -->
+    <section class="card">
+
+        <h2>📖 Our Little Memories</h2>
+
+        <div class="memory-input">
+            <input
+                id="memoryInput"
+                type="text"
+                placeholder="Write a little memory..."
+            >
+
+            <button onclick="addMemory()">
+                Add
+            </button>
+        </div>
+
+        <div class="memory-list" id="memoryList"></div>
+
+    </section>
+
+
+    <!-- REWARD -->
+    <section class="card reward">
+
+        <div class="lock" id="rewardIcon">🔒</div>
+
+        <h2 id="rewardTitle">
+            Secret Surprise
+        </h2>
+
+        <p id="rewardText">
+            Complete all today's tasks to unlock something special. 💗
+        </p>
+
+    </section>
+
+
+    <div class="reset">
+        <button class="secondary" onclick="resetTasks()">
+            Reset Today's Tasks
+        </button>
+    </div>
+
+    <div class="footer">
+        Made with love for two people who are miles apart. 💗
+    </div>
+
+</div>
+
+
+<!-- MESSAGE MODAL -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <h2 id="modalTitle">Write Something 💗</h2>
+
+        <textarea
+            id="messageInput"
+            placeholder="Write something for your partner..."
+        ></textarea>
+
+        <button onclick="saveMessage()">
+            Save 💗
+        </button>
+
+        <button class="secondary" onclick="closeModal()">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================
+   TASK SYSTEM
+===================================== */
+
+let tasks = JSON.parse(
+    localStorage.getItem("ldrTasks")
+) || {};
+
+let memories = JSON.parse(
+    localStorage.getItem("ldrMemories")
+) || [];
+
+
+function completeTask(number) {
+
+    tasks[number] = true;
+
+    localStorage.setItem(
+        "ldrTasks",
+        JSON.stringify(tasks)
+    );
+
+    updateTasks();
+
+    createHeartEffect();
+}
+
+
+function updateTasks() {
+
+    let total = 5;
+    let completed = Object.keys(tasks)
+        .filter(key => tasks[key]).length;
+
+    let percentage =
+        Math.round((completed / total) * 100);
+
+    document.getElementById("progressBar")
+        .style.width = percentage + "%";
+
+    document.getElementById("progressText")
+        .textContent = percentage + "%";
+
+
+    for(let i = 1; i <= total; i++) {
+
+        let element =
+            document.getElementById("task" + i);
+
+        if(tasks[i]) {
+
+            element.classList.add("completed");
+
+            let button =
+                element.querySelector("button");
+
+            if(button) {
+                button.textContent = "✓ Completed";
+            }
+
+        }
+
+    }
+
+
+    if(percentage === 100) {
+
+        document.getElementById("rewardIcon")
+            .textContent = "🎁";
+
+        document.getElementById("rewardTitle")
+            .textContent = "Surprise Unlocked! 💗";
+
+        document.getElementById("rewardText")
+            .textContent =
+            "You completed today's relationship quest together. Distance can't stop your teamwork. ❤️";
+
+    }
+
+}
+
+
+/* =====================================
+   MEMORIES
+===================================== */
+
+function addMemory() {
+
+    let input =
+        document.getElementById("memoryInput");
+
+    let text =
+        input.value.trim();
+
+    if(!text) return;
+
+    memories.push({
+        text: text,
+        date: new Date().toLocaleDateString()
+    });
+
+    localStorage.setItem(
+        "ldrMemories",
+        JSON.stringify(memories)
+    );
+
+    input.value = "";
+
+    displayMemories();
+}
+
+
+function displayMemories() {
+
+    let list =
+        document.getElementById("memoryList");
+
+    list.innerHTML = "";
+
+    memories.forEach(memory => {
+
+        let item =
+            document.createElement("div");
+
+        item.className = "memory";
+
+        item.innerHTML =
+            "💗 " +
+            escapeHTML(memory.text) +
+            "<br><small>" +
+            memory.date +
+            "</small>";
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+function escapeHTML(text) {
+
+    let div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+
+/* =====================================
+   MESSAGE MODAL
+===================================== */
+
+let currentTask = "";
+
+function openMessage(taskName) {
+
+    currentTask = taskName;
+
+    document.getElementById("modalTitle")
+        .textContent =
+        taskName + " 💗";
+
+    document.getElementById("modal")
+        .classList.add("show");
+}
+
+
+function closeModal() {
+
+    document.getElementById("modal")
+        .classList.remove("show");
+
+}
+
+
+function saveMessage() {
+
+    let message =
+        document.getElementById("messageInput")
+            .value.trim();
+
+    if(!message) return;
+
+    memories.push({
+        text: currentTask + ": " + message,
+        date: new Date().toLocaleDateString()
+    });
+
+    localStorage.setItem(
+        "ldrMemories",
+        JSON.stringify(memories)
+    );
+
+    document.getElementById("messageInput")
+        .value = "";
+
+    closeModal();
+
+    displayMemories();
+
+    createHeartEffect();
+}
+
+
+/* =====================================
+   RESET
+===================================== */
+
+function resetTasks() {
+
+    tasks = {};
+
+    localStorage.setItem(
+        "ldrTasks",
+        JSON.stringify(tasks)
+    );
+
+    location.reload();
+}
+
+
+/* =====================================
+   3D CARD MOVEMENT
+===================================== */
+
+document.querySelectorAll(".card")
+.forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+
+        if(window.innerWidth < 700) return;
+
+        let rect =
+            card.getBoundingClientRect();
+
+        let x =
+            e.clientX - rect.left;
+
+        let y =
+            e.clientY - rect.top;
+
+        let rotateY =
+            ((x / rect.width) - .5) * 5;
+
+        let rotateX =
+            ((y / rect.height) - .5) * -5;
+
+        card.style.transform =
+            `perspective(900px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-3px)`;
+    });
+
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform =
+            "perspective(900px) rotateX(0) rotateY(0)";
+
+    });
+
+});
+
+
+/* =====================================
+   HEART EFFECT
+===================================== */
+
+function createHeartEffect() {
+
+    for(let i = 0; i < 8; i++) {
+
+        let heart =
+            document.createElement("div");
+
+        heart.textContent = "💗";
+
+        heart.style.position = "fixed";
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.bottom = "0";
+        heart.style.fontSize =
+            (15 + Math.random() * 20) + "px";
+
+        heart.style.zIndex = "100";
+
+        heart.style.pointerEvents = "none";
+
+        heart.animate(
+            [
+                {
+                    transform: "translateY(0) scale(.5)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                        `translateY(-${300 + Math.random()*300}px)
+                         translateX(${(Math.random()-.5)*150}px)
+                         scale(1.3)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration:
+                    1800 + Math.random()*1000,
+                easing: "ease-out"
+            }
+        );
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 3000);
+
+    }
+
+}
+
+
+/* =====================================
+   START
+===================================== */
+
+updateTasks();
+displayMemories();
+
+</script>
+
+</body>
+</html>
